@@ -20,6 +20,7 @@ router.post('/registration', (req, res) => {
         confirm_password: req.body.confirm_password,
         profile_picture: req.body.profile_picture
     })
+    const data = userModel.find({ email: req.body.email })
     newUser.save((err, status) => {
         if (err) {
             res.send(err.message)
