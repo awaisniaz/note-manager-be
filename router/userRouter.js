@@ -5,10 +5,10 @@ const userModel = require('../models/user')
 router.post('/login', (req, res) => {
     userModel.findOne({ email: req.body.email, password: req.body.password }, (err, data) => {
         if (data) {
-            res.send({ message: 'Login Successfully', response: true })
+            res.send({ message: 'Login Successfully', success: true })
         }
         else {
-            res.send({ message: 'Try Again', response: false })
+            res.send({ message: 'Try Again', success: false })
         }
     })
 })
