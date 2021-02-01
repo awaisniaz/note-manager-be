@@ -1,14 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const userModel = require('../models/user')
-
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     userModel.findOne({ email: req.body.email, password: req.body.password }, (err, data) => {
         if (data) {
-            res.send({ message: 'Login Successfully', success: true })
+            res.send({ message: 'Login Successfully', success: true, data: data })
         }
         else {
-            res.send({ message: 'Try Again', success: false })
+            res.send({ message: 'Try Again,Your Crediential is not correct', success: false })
         }
     })
 })
