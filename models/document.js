@@ -8,6 +8,5 @@ const user = new mongoose.Schema({
     date: { type: Date },
     picture: { type: String }
 })
-// Mongoose data table
 const userModel = mongoose.model('User', user)
 module.exports = userModel
